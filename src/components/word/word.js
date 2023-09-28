@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 
-export default function Word({ word, translation }) {
+export default function Word({ word, translation, check}) {
     const [show_tran, setShow_tran] = useState(false);
 
     const toggleTranslation = () => {
-        setShow_tran(!show_tran);
-    };
+        setShow_tran(!show_tran)
+    };                          
 
     return (
         <View style={styles.grey_background}>

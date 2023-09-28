@@ -6,19 +6,21 @@ import Small_button from '../../components/buttons/small_buttons';
 import Big_button from '../../components/buttons/big_buttons';
 import Word from '../../components/word/word';
 import init_flashcard from '../../data';
-// import darkMode from '../setting/setting';
 
 export default function Play_screen() {
   const [index, setIndex] = useState(0);
-
   const [flashcards, setFlashcards] = useState(init_flashcard);
+  const [check, setCheck] = useState(false);
+
   const cards = flashcards.length;
 
   const Next = () => {
     setIndex((prevIndex) => (prevIndex + 1) % flashcards.length);
+    setCheck(true);
   }
   const Previous = () => {
     setIndex((prevIndex) => (prevIndex - 1 + flashcards.length) % flashcards.length);
+    setCheck(true);
   }
 
   const Remove = () => {
@@ -43,7 +45,7 @@ export default function Play_screen() {
     <View style={styles.container}>
       <Header message={cards} />
 
-      <Word word={flashcards[index].word} translation={flashcards[index].translation} />
+      <Word word={flashcards[index].word} translation={flashcards[index].translation} check={check}/>
 
       <View style={styles.small_button_view}>
         <Small_button button_text={"Previous"} function={Previous}></Small_button>

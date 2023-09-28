@@ -16,11 +16,14 @@ const Setting = () => {
       backgroundColor: darkMode ? 'grey' : 'white',
     }}>
       <View style={styles.setting}>
-        <Text>Dark Mode</Text>
+        <Text style={{fontSize: 20, }}>Dark Mode</Text>
         <Switch
           value={darkMode}
           onValueChange={toggleDarkMode}
         />
+      </View>
+      <View>
+
       </View>
     </View>
   );
